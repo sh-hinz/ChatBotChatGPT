@@ -31,38 +31,40 @@
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+            app:layout_constraintBottom_toTopOf="@+id/chatFragmentTextInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chatMaterialToolbar"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:reverseLayout="true"
+            app:stackFromEnd="true"
             tools:listitem="@layout/chat_item"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
+            android:id="@+id/chatFragmentTextInputLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
+            app:startIconDrawable="@drawable/baseline_insert_emoticon_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintEnd_toStartOf="@+id/sendImageButton"
             app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/chatFragmentTextInputLayoutEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Schreibe eine Nachricht..." />
+                android:hint="Nachricht schreiben..." />
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/sendImageButton"
+            android:layout_width="48sp"
+            android:layout_height="48sp"
             android:backgroundTint="#00FFFFFF"
-            app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
+            app:layout_constraintBottom_toBottomOf="@+id/chatFragmentTextInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textInputLayout"
+            app:layout_constraintTop_toTopOf="@+id/chatFragmentTextInputLayout"
             app:srcCompat="@drawable/baseline_send_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

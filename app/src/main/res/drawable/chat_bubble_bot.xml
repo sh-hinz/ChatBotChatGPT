@@ -2,25 +2,25 @@
     android:shape="rectangle">
 
     <corners
-        android:bottomLeftRadius="10dp"
-        android:radius="40dp" />
+        android:bottomLeftRadius="5dp"
+        android:radius="30dp" />
 
     <gradient
         android:angle="45"
-        android:centerX="float"
-        android:centerY="float"
-        android:endColor="#0186FA"
-        android:gradientRadius="integer"
+        android:centerX="0.5"
+        android:centerY="0.5"
         android:startColor="#01FFA6"
-        android:type="linear" />
+        android:endColor="#0186FA"
+        android:gradientRadius="20dp"
+        android:type="linear"/>
 
     <!--Falls der Shape nur eine einzelne Farbe haben soll -->
     <!--<solid
         android:color="#FFFFFF" />-->
 
     <size
-        android:width="82dp"
-        android:height="82dp" />
+        android:width="62dp"
+        android:height="62dp" />
 
     <!-- android:dashWidth="2dp" and android:dashGap="2dp"
     um lücken in den Rand einzufügen-->
@@ -29,10 +29,10 @@
         android:color="@color/design_default_color_on_secondary" />
 
     <!-- Falls ich padding brauche-->
-    <!-- <padding
+     <padding
          android:left="10dp"
-         android:top="20dp"
-         android:right="40dp"
-         android:bottom="8dp" />-->
+         android:top="10dp"
+         android:right="10dp"
+         android:bottom="10dp" />
 
 </shape>

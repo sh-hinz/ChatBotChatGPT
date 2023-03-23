@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.chatbotchatgpt.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -20,6 +21,10 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        // Folgt...
+        val startChatButton = binding.startChatButton
+
+        startChatButton.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToChatFragment())
+        }
     }
 }

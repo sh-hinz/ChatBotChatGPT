@@ -1,0 +1,38 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <corners
+        android:bottomLeftRadius="10dp"
+        android:radius="40dp" />
+
+    <gradient
+        android:angle="45"
+        android:centerX="float"
+        android:centerY="float"
+        android:endColor="#0186FA"
+        android:gradientRadius="integer"
+        android:startColor="#01FFA6"
+        android:type="linear" />
+
+    <!--Falls der Shape nur eine einzelne Farbe haben soll -->
+    <!--<solid
+        android:color="#FFFFFF" />-->
+
+    <size
+        android:width="82dp"
+        android:height="82dp" />
+
+    <!-- android:dashWidth="2dp" and android:dashGap="2dp"
+    um lücken in den Rand einzufügen-->
+    <stroke
+        android:width="2dp"
+        android:color="@color/design_default_color_on_secondary" />
+
+    <!-- Falls ich padding brauche-->
+    <!-- <padding
+         android:left="10dp"
+         android:top="20dp"
+         android:right="40dp"
+         android:bottom="8dp" />-->
+
+</shape>

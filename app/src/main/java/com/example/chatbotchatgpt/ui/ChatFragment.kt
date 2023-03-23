@@ -58,6 +58,6 @@ class ChatFragment : Fragment() {
     private fun sendMessage(message: String, sentBy: String) {
         viewModel.sendMessage(ChatMessage(message, Date(), sentBy))
         chatAdapter.notifyItemInserted(viewModel.messageList.value!!.lastIndex) // Oder DatasetChanged?
-        //binding.chatFragmentRecyclerView.smoothScrollToPosition(chatAdapter.itemCount)
+        binding.chatFragmentRecyclerView.smoothScrollToPosition(chatAdapter.itemCount)
     }
 }

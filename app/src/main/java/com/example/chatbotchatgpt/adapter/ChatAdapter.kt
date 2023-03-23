@@ -63,6 +63,6 @@ class ChatAdapter : RecyclerView.Adapter<ChatAdapter.ItemViewHolder>() {
     fun loadMessages(messages: MutableList<ChatMessage>) {
         this.dataset = messages
         Log.d("loadMessages", "$dataset")
-        notifyItemRangeChanged(0,dataset.size)
+        //notifyItemRangeChanged(0,dataset.size)
     }
 }

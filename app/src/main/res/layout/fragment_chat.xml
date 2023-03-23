@@ -26,6 +26,7 @@
             app:titleCentered="true" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatFragmentRecyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
@@ -33,7 +34,10 @@
             app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chatMaterialToolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/chatMaterialToolbar"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:reverseLayout="true"
+            tools:listitem="@layout/chat_item"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"

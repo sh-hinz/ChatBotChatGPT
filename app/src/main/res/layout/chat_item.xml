@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/userChatTextView"
@@ -19,6 +19,18 @@
         tools:text="Das hier ist eine Testnachricht! Hiermit teste ich die Chatbubble." />
 
     <TextView
+        android:id="@+id/userChatTimeTextView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:textAlignment="textEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/userChatTextView"
+        app:layout_constraintStart_toStartOf="@+id/userChatTextView"
+        app:layout_constraintTop_toBottomOf="@+id/userChatTextView"
+        tools:text="02:22 Uhr" />
+
+    <TextView
         android:id="@+id/botChatTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,4 +42,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Das hier ist eine Testnachricht! Hiermit teste ich die Chatbubble." />
+
+    <TextView
+        android:id="@+id/botChatTimeTextView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/botChatTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botChatTextView"
+        tools:text="02:19 Uhr" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

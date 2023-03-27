@@ -1,6 +1,7 @@
 package com.example.chatbotchatgpt.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,6 +43,13 @@ class ChatFragment : Fragment() {
             chatAdapter.loadMessages(messages)
         }
 
+        viewModel.scrollBool.observe(viewLifecycleOwner) { scrollBool ->
+            if (scrollBool) {
+                binding.chatFragmentRecyclerView.smoothScrollToPosition(chatAdapter.itemCount)
+                viewModel.setScrollBoolFalse()
+            }
+        }
+
         sendButton.setOnClickListener {
             if (!messageFieldEditText.text.isNullOrEmpty()) {
                 val message = messageFieldEditText.text.toString()
@@ -59,7 +67,7 @@ class ChatFragment : Fragment() {
 
     private fun sendMessage(message: String, sentBy: String) {
         viewModel.sendMessage(ChatMessage(message, Date(), sentBy))
-        chatAdapter.notifyItemInserted(viewModel.messageList.value!!.lastIndex) // Oder DatasetChanged?
+        chatAdapter.notifyItemInserted(viewModel.messageList.value!!.lastIndex)
         //binding.chatFragmentRecyclerView.smoothScrollToPosition(chatAdapter.itemCount)
     }
 }

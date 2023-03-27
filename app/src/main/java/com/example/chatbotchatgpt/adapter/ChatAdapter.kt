@@ -66,6 +66,7 @@ class ChatAdapter : RecyclerView.Adapter<ChatAdapter.ItemViewHolder>() {
         for (i in dataset.indices) {
             Log.d("loadMessages", dataset[i].message)
         }
-        notifyItemRangeChanged(0,dataset.size)
+        //notifyItemRangeChanged(0,dataset.size)
+        notifyItemInserted(dataset.size-1)
     }
 }

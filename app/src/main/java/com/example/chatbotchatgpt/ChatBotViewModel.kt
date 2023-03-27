@@ -5,9 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.recyclerview.widget.RecyclerView
 import com.example.chatbotchatgpt.BuildConfig.OPENAI_API_KEY
-import com.example.chatbotchatgpt.adapter.ChatAdapter
 import com.example.chatbotchatgpt.data.Repository
 import com.example.chatbotchatgpt.data.model.ChatMessage
 import kotlinx.coroutines.launch
@@ -25,9 +23,13 @@ class ChatBotViewModel : ViewModel() {
     val messageList: LiveData<MutableList<ChatMessage>>
         get() = _messageList
 
+    private var _scrollBool = MutableLiveData<Boolean>()
+    var scrollBool: LiveData<Boolean> = _scrollBool
+        get() = _scrollBool
     fun sendMessage(message: ChatMessage) {
         viewModelScope.launch {
             _messageList.value?.add(message)
+            setScrollBoolTrue()
         }
     }
 
@@ -35,11 +37,13 @@ class ChatBotViewModel : ViewModel() {
         viewModelScope.launch {
             _messageList.value?.add(message)
             _messageList.value = _messageList.value
+            setScrollBoolTrue()
         }
     }
 
     fun sendResponse(response: String?) {
         response?.let { ChatMessage(it, Date(), ChatMessage.SENT_BY_BOT) }?.let { addMessageToList(it) }
+
     }
 
     val JSON: MediaType = "application/json; charset=utf-8".toMediaType()
@@ -89,7 +93,15 @@ class ChatBotViewModel : ViewModel() {
         })
     }
 
+    fun setScrollBoolFalse() {
+        _scrollBool.value = false
+    }
+    fun setScrollBoolTrue() {
+        _scrollBool.postValue(true)
+    }
+
     init {
         _messageList.value = repository.loadMessages()
+        _scrollBool.value = repository.initScrollBool()
     }
 }

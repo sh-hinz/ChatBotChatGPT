@@ -6,4 +6,8 @@ class Repository {
     fun loadMessages(): MutableList<ChatMessage> {
         return mutableListOf()
     }
+
+    fun initScrollBool(): Boolean {
+        return false
+    }
 }

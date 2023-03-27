@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -45,7 +46,8 @@ class ChatFragment : Fragment() {
             if (!messageFieldEditText.text.isNullOrEmpty()) {
                 val message = messageFieldEditText.text.toString()
                 sendMessage(message, ChatMessage.SENT_BY_ME)
-                Toast.makeText(requireContext(), messageFieldEditText.text.toString(),Toast.LENGTH_SHORT).show()
+                //Toast.makeText(requireContext(), messageFieldEditText.text.toString(),Toast.LENGTH_SHORT).show() // lol, causes APK Errors
+                viewModel.callAPI(message)
                 messageFieldEditText.text?.clear()
             }
         }
@@ -58,6 +60,6 @@ class ChatFragment : Fragment() {
     private fun sendMessage(message: String, sentBy: String) {
         viewModel.sendMessage(ChatMessage(message, Date(), sentBy))
         chatAdapter.notifyItemInserted(viewModel.messageList.value!!.lastIndex) // Oder DatasetChanged?
-        binding.chatFragmentRecyclerView.smoothScrollToPosition(chatAdapter.itemCount)
+        //binding.chatFragmentRecyclerView.smoothScrollToPosition(chatAdapter.itemCount)
     }
 }
